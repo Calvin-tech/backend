@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top-up / Withdraw — PAAB Capital</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <button class="menu-close" aria-label="Close menu"><i class="fas fa-xmark"></i></button>
+            <div class="brand">
+                <img src="../Images/Paab logoArtboard 1.png" class="brand-logo" alt="PAAB Capital">
+                <div class="brand-name">PAAB CAPITAL</div>
+            </div>
+            <nav class="menu">
+                <a href="index.html" class="menu-item"><i class="icon fas fa-house"></i> Home</a>
+                <a href="investments.html" class="menu-item"><i class="icon fas fa-chart-pie"></i> My Investments</a>
+                <a href="reports.html" class="menu-item"><i class="icon fas fa-chart-line"></i> Performance Reports</a>
+                <a href="documents.html" class="menu-item"><i class="icon fas fa-file-lines"></i> Fund Documents</a>
+                <a href="transactions.html" class="menu-item"><i class="icon fas fa-credit-card"></i> Transactions</a>
+                <a href="topup.html" class="menu-item active"><i class="icon fas fa-right-left"></i> Top-up/Withdraw</a>
+                <a href="settings.html" class="menu-item"><i class="icon fas fa-gear"></i> Profile Settings</a>
+                <a href="messages.html" class="menu-item"><i class="icon fas fa-envelope"></i> Messages</a>
+                <a href="support.html" class="menu-item"><i class="icon fas fa-life-ring"></i> Support</a>
+                <a href="../login.html" class="menu-item"><i class="icon fas fa-right-from-bracket"></i> Logout</a>
+            </nav>
+        </aside>
+        <main class="content">
+            <div class="topbar">
+                <button class="menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+                <div class="center-brand"><img src="../Images/Paab logoArtboard 1.png" alt="PAAB Capital"><span class="brand-name-small">PAAB CAPITAL</span></div>
+                <div class="user-chip"><i class="fas fa-user"></i><span class="chip-name">Your Name</span></div>
+            </div>
+            <header class="welcome"><h1>Top-up / Withdraw</h1></header>
+            <section class="cards">
+                <div class="card">
+                    <div class="toolbar">
+                        <div class="filters"><span class="badge">Secure</span></div>
+                        <button class="btn-primary" type="button"><i class="fas fa-receipt" style="margin-right:8px;"></i>View History</button>
+                    </div>
+                    <div class="card-title">New Instruction</div>
+                    <form style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
+                        <div class="field with-icon">
+                            <label class="label">Action</label>
+                            <i class="fas fa-right-left"></i>
+                            <select class="select-input"><option>Top-up</option><option>Withdraw</option></select>
+                            <div class="hint">Choose whether to add or remove funds</div>
+                        </div>
+                        <div class="field with-icon">
+                            <label class="label">Fund</label>
+                            <i class="fas fa-coins"></i>
+                            <select class="select-input"><option>Unit Trust Fund</option><option>Special Fund</option></select>
+                            <div class="hint">Select the target fund</div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Amount (KES)</label>
+                            <div class="input-group">
+                                <span class="input-prefix">KES</span>
+                                <input type="number" class="login-input" placeholder="0.00">
+                            </div>
+                            <div class="hint">Minimum KES 1,000</div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Reference</label>
+                            <div class="input-row">
+                                <i class="fas fa-receipt"></i>
+                                <div class="input-outline" style="flex:1;">
+                                    <input type="text" class="login-input" placeholder="e.g. M-Pesa Ref">
+                                </div>
+                            </div>
+                            <div class="hint">Optional: your payment reference</div>
+                        </div>
+                        <div class="two-col" style="grid-column:1 / span 2;">
+                            <div class="summary-card">
+                                <div class="summary-row"><span class="label">Selected Fund</span><span class="value">Unit Trust Fund</span></div>
+                                <div class="summary-row"><span class="label">Action</span><span class="value">Top-up</span></div>
+                                <div class="summary-row"><span class="label">Amount</span><span class="value">KES 0.00</span></div>
+                                <div class="summary-row"><span class="label">Fees</span><span class="value">KES 0.00</span></div>
+                                <div class="summary-row"><span class="summary-total">Total</span><span class="summary-total">KES 0.00</span></div>
+                            </div>
+                            <div class="summary-card">
+                                <div class="summary-row"><span class="label">Payment Method</span><span class="value">M-Pesa</span></div>
+                                <div class="summary-row"><span class="label">Processing Time</span><span class="value">Instant</span></div>
+                                <div class="summary-row"><span class="label">Status</span><span class="value" style="color:var(--gold);">Ready</span></div>
+                            </div>
+                        </div>
+                        <div class="form-actions" style="grid-column:1 / span 2;">
+                            <button class="btn-primary btn-wide" type="button">Submit Instruction</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+    (function(){
+        var sidebar=document.querySelector('.sidebar');
+        var toggle=document.querySelector('.menu-toggle');
+        var closeBtn=document.querySelector('.menu-close');
+        if(toggle){ toggle.addEventListener('click', function(){ sidebar && sidebar.classList.add('open'); }); }
+        if(closeBtn){ closeBtn.addEventListener('click', function(){ sidebar && sidebar.classList.remove('open'); }); }
+        document.querySelectorAll('.menu .menu-item').forEach(function(a){ a.addEventListener('click', function(){ sidebar && sidebar.classList.remove('open'); }); });
+    })();
+    </script>
+</body>
+</html>
+
+

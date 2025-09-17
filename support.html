@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — PAAB Capital</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <button class="menu-close" aria-label="Close menu"><i class="fas fa-xmark"></i></button>
+            <div class="brand">
+                <img src="../Images/Paab logoArtboard 1.png" class="brand-logo" alt="PAAB Capital">
+                <div class="brand-name">PAAB CAPITAL</div>
+            </div>
+            <nav class="menu">
+                <a href="index.html" class="menu-item"><i class="icon fas fa-house"></i> Home</a>
+                <a href="investments.html" class="menu-item"><i class="icon fas fa-chart-pie"></i> My Investments</a>
+                <a href="reports.html" class="menu-item"><i class="icon fas fa-chart-line"></i> Performance Reports</a>
+                <a href="documents.html" class="menu-item"><i class="icon fas fa-file-lines"></i> Fund Documents</a>
+                <a href="transactions.html" class="menu-item"><i class="icon fas fa-credit-card"></i> Transactions</a>
+                <a href="topup.html" class="menu-item"><i class="icon fas fa-right-left"></i> Top-up/Withdraw</a>
+                <a href="settings.html" class="menu-item"><i class="icon fas fa-gear"></i> Profile Settings</a>
+                <a href="messages.html" class="menu-item"><i class="icon fas fa-envelope"></i> Messages</a>
+                <a href="support.html" class="menu-item active"><i class="icon fas fa-life-ring"></i> Support</a>
+                <a href="../login.html" class="menu-item"><i class="icon fas fa-right-from-bracket"></i> Logout</a>
+            </nav>
+        </aside>
+        <main class="content">
+            <div class="topbar">
+                <button class="menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+                <div class="center-brand"><img src="../Images/Paab logoArtboard 1.png" alt="PAAB Capital"><span class="brand-name-small">PAAB CAPITAL</span></div>
+                <div class="user-chip"><i class="fas fa-user"></i><span class="chip-name">Your Name</span></div>
+            </div>
+            <header class="welcome"><h1>Support</h1></header>
+            <section class="cards">
+                <div class="card">
+                    <div class="card-title">Contact Support</div>
+                    <p class="label"><i class="fas fa-envelope" style="color:var(--gold); margin-right:8px;"></i>Email: <a href="mailto:info@paabcapital.com">info@paabcapital.com</a></p>
+                    <p class="label"><i class="fas fa-phone" style="color:var(--gold); margin-right:8px;"></i>Phone: +254205203552</p>
+                    <p class="label"><i class="fas fa-clock" style="color:var(--gold); margin-right:8px;"></i>We typically respond within 1–2 business days.</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">Contact</div>
+                    <form style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                        <div class="field">
+                            <label class="label">Full Name</label>
+                            <div class="input-row">
+                                <i class="fas fa-id-card"></i>
+                                <div class="input-outline" style="flex:1;">
+                                    <input type="text" class="login-input" placeholder="Your full name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="input-row">
+                                <i class="fas fa-envelope"></i>
+                                <div class="input-outline" style="flex:1;">
+                                    <input type="email" class="login-input" placeholder="you@example.com">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field" style="grid-column:1 / span 2;">
+                            <label class="label">Subject</label>
+                            <div class="input-outline">
+                                <input type="text" class="login-input" placeholder="Subject">
+                            </div>
+                        </div>
+                        <div class="field" style="grid-column:1 / span 2;">
+                            <label class="label">Message</label>
+                            <div class="input-outline">
+                                <textarea class="login-input" rows="6" placeholder="Type your message..."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-actions" style="grid-column:1 / span 2;">
+                            <button class="btn-primary" type="button">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+    (function(){
+        var sidebar=document.querySelector('.sidebar');
+        var toggle=document.querySelector('.menu-toggle');
+        var closeBtn=document.querySelector('.menu-close');
+        if(toggle){ toggle.addEventListener('click', function(){ sidebar && sidebar.classList.add('open'); }); }
+        if(closeBtn){ closeBtn.addEventListener('click', function(){ sidebar && sidebar.classList.remove('open'); }); }
+        document.querySelectorAll('.menu .menu-item').forEach(function(a){ a.addEventListener('click', function(){ sidebar && sidebar.classList.remove('open'); }); });
+    })();
+    </script>
+</body>
+</html>
+
+

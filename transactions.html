@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions — PAAB Capital</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <button class="menu-close" aria-label="Close menu"><i class="fas fa-xmark"></i></button>
+            <div class="brand">
+                <img src="../Images/Paab logoArtboard 1.png" class="brand-logo" alt="PAAB Capital">
+                <div class="brand-name">PAAB CAPITAL</div>
+            </div>
+            <nav class="menu">
+                <a href="index.html" class="menu-item"><i class="icon fas fa-house"></i> Home</a>
+                <a href="investments.html" class="menu-item"><i class="icon fas fa-chart-pie"></i> My Investments</a>
+                <a href="reports.html" class="menu-item"><i class="icon fas fa-chart-line"></i> Performance Reports</a>
+                <a href="documents.html" class="menu-item"><i class="icon fas fa-file-lines"></i> Fund Documents</a>
+                <a href="transactions.html" class="menu-item active"><i class="icon fas fa-credit-card"></i> Transactions</a>
+                <a href="topup.html" class="menu-item"><i class="icon fas fa-right-left"></i> Top-up/Withdraw</a>
+                <a href="settings.html" class="menu-item"><i class="icon fas fa-gear"></i> Profile Settings</a>
+                <a href="messages.html" class="menu-item"><i class="icon fas fa-envelope"></i> Messages</a>
+                <a href="support.html" class="menu-item"><i class="icon fas fa-life-ring"></i> Support</a>
+                <a href="../login.html" class="menu-item"><i class="icon fas fa-right-from-bracket"></i> Logout</a>
+            </nav>
+        </aside>
+        <main class="content">
+            <div class="topbar">
+                <button class="menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+                <div class="center-brand"><img src="../Images/Paab logoArtboard 1.png" alt="PAAB Capital"><span class="brand-name-small">PAAB CAPITAL</span></div>
+                <div class="user-chip"><i class="fas fa-user"></i><span class="chip-name">Your Name</span></div>
+            </div>
+            <header class="welcome"><h1>Transactions</h1></header>
+            <section class="cards">
+                    <div class="card">
+                    <div class="toolbar">
+                        <div class="filters two-col" style="width:100%;">
+                            <div class="field">
+                                <label class="label">Date From</label>
+                                <div class="input-row">
+                                    <i class="fas fa-calendar"></i>
+                                    <div class="input-outline" style="flex:1;">
+                                        <input type="date" class="login-input">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="field">
+                                <label class="label">Date To</label>
+                                <div class="input-row">
+                                    <i class="fas fa-calendar"></i>
+                                    <div class="input-outline" style="flex:1;">
+                                        <input type="date" class="login-input">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div>
+                                <label class="label">Type</label>
+                                <select class="select-input">
+                                    <option value="all">All</option>
+                                    <option value="topup">Top-up</option>
+                                    <option value="withdraw">Withdraw</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="label">Fund</label>
+                                <select class="select-input">
+                                    <option value="all">All Funds</option>
+                                    <option value="utf">Unit Trust Fund</option>
+                                    <option value="sf">Special Fund</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-title">Recent Transactions</div>
+                    <table style="width:100%; border-collapse:collapse;">
+                        <thead>
+                            <tr style="text-align:left; border-bottom:1px solid #eee2d3;">
+                                <th style="padding:10px 6px;">Date</th>
+                                <th style="padding:10px 6px;">Type</th>
+                                <th style="padding:10px 6px;">Fund</th>
+                                <th style="padding:10px 6px;">Amount</th>
+                                <th style="padding:10px 6px;">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid #f2e9db;">
+                                <td style="padding:10px 6px;">2024-07-12</td>
+                                <td style="padding:10px 6px;">Top-up</td>
+                                <td style="padding:10px 6px;">Unit Trust Fund</td>
+                                <td style="padding:10px 6px;">KES 50,000</td>
+                                <td style="padding:10px 6px; color:var(--gold);">Completed</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px 6px;">2024-06-05</td>
+                                <td style="padding:10px 6px;">Withdraw</td>
+                                <td style="padding:10px 6px;">Special Fund</td>
+                                <td style="padding:10px 6px;">KES 30,000</td>
+                                <td style="padding:10px 6px; color:var(--gold);">Completed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+    (function(){
+        var sidebar=document.querySelector('.sidebar');
+        var toggle=document.querySelector('.menu-toggle');
+        var closeBtn=document.querySelector('.menu-close');
+        if(toggle){ toggle.addEventListener('click', function(){ sidebar && sidebar.classList.add('open'); }); }
+        if(closeBtn){ closeBtn.addEventListener('click', function(){ sidebar && sidebar.classList.remove('open'); }); }
+        document.querySelectorAll('.menu .menu-item').forEach(function(a){ a.addEventListener('click', function(){ sidebar && sidebar.classList.remove('open'); }); });
+    })();
+    </script>
+</body>
+</html>
+
+

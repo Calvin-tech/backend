@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Investments — PAAB Capital</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <button class="menu-close" aria-label="Close menu"><i class="fas fa-xmark"></i></button>
+            <div class="brand">
+                <img src="../Images/Paab logoArtboard 1.png" class="brand-logo" alt="PAAB Capital">
+                <div class="brand-name">PAAB CAPITAL</div>
+            </div>
+            <nav class="menu">
+                <a href="index.html" class="menu-item"><i class="icon fas fa-house"></i> Home</a>
+                <a href="investments.html" class="menu-item active"><i class="icon fas fa-chart-pie"></i> My Investments</a>
+                <a href="reports.html" class="menu-item"><i class="icon fas fa-chart-line"></i> Performance Reports</a>
+                <a href="documents.html" class="menu-item"><i class="icon fas fa-file-lines"></i> Fund Documents</a>
+                <a href="transactions.html" class="menu-item"><i class="icon fas fa-credit-card"></i> Transactions</a>
+                <a href="topup.html" class="menu-item"><i class="icon fas fa-right-left"></i> Top-up/Withdraw</a>
+                <a href="settings.html" class="menu-item"><i class="icon fas fa-gear"></i> Profile Settings</a>
+                <a href="messages.html" class="menu-item"><i class="icon fas fa-envelope"></i> Messages</a>
+                <a href="support.html" class="menu-item"><i class="icon fas fa-life-ring"></i> Support</a>
+                <a href="../login.html" class="menu-item"><i class="icon fas fa-right-from-bracket"></i> Logout</a>
+            </nav>
+        </aside>
+        <main class="content">
+            <div class="topbar">
+                <button class="menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+                <div class="user-chip"><i class="fas fa-user"></i><span class="chip-name">Your Name</span></div>
+            </div>
+            <header class="welcome"><h1>My Investments</h1></header>
+            <section class="cards">
+                <div class="card">
+                    <div class="toolbar">
+                        <div class="filters">
+                            <span class="badge">2 Active</span>
+                            <select class="select-input" id="funds-select">
+                                <option value="all">All Funds</option>
+                                <option value="utf">Unit Trust Fund</option>
+                                <option value="sf">Special Fund</option>
+                            </select>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropdown-btn" id="actions-dd"><i class="fas fa-ellipsis"></i> Actions <i class="fas fa-caret-down"></i></button>
+                            <div class="dropdown-menu" id="actions-menu">
+                                <a href="topup.html" class="dropdown-item"><i class="fas fa-right-left"></i> Top-up / Withdraw</a>
+                                <a href="#" class="dropdown-item"><i class="fas fa-plus"></i> New Investment</a>
+                                <a href="#" class="dropdown-item"><i class="fas fa-file-export"></i> Export</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-title">Active Funds</div>
+                    <div class="two-col" style="align-items:center; margin-bottom:8px;">
+                        <div class="mini-card" style="display:flex; flex-direction:column; align-items:center;">
+                            <div id="pie-utf" class="pie"></div>
+                            <div class="pie-title">Unit Trust Fund</div>
+                            <div class="pie-legend">
+                                <span class="legend-item"><span class="legend-dot s1"></span>Investment</span>
+                                <span class="legend-item"><span class="legend-dot s2"></span>Profit</span>
+                            </div>
+                        </div>
+                        <div class="mini-card" style="display:flex; flex-direction:column; align-items:center;">
+                            <div id="pie-sf" class="pie"></div>
+                            <div class="pie-title">Special Fund</div>
+                            <div class="pie-legend">
+                                <span class="legend-item"><span class="legend-dot s1"></span>Investment</span>
+                                <span class="legend-item"><span class="legend-dot s2"></span>Profit</span>
+                            </div>
+                        </div>
+                    </div>
+                    <table style="width:100%; border-collapse:collapse;">
+                        <thead>
+                            <tr style="text-align:left; border-bottom:1px solid #eee2d3;">
+                                <th style="padding:10px 6px;">Fund</th>
+                                <th style="padding:10px 6px;">Invested</th>
+                                <th style="padding:10px 6px;">Units</th>
+                                <th style="padding:10px 6px;">Current Value</th>
+                                <th style="padding:10px 6px;">Return</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid #f2e9db;">
+                                <td style="padding:10px 6px;">Unit Trust Fund</td>
+                                <td style="padding:10px 6px;">KES 500,000</td>
+                                <td style="padding:10px 6px;">12,340</td>
+                                <td style="padding:10px 6px;">KES 560,000</td>
+                                <td style="padding:10px 6px; color:var(--gold);">+12%</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px 6px;">Special Fund</td>
+                                <td style="padding:10px 6px;">KES 700,000</td>
+                                <td style="padding:10px 6px;">8,900</td>
+                                <td style="padding:10px 6px;">KES 910,000</td>
+                                <td style="padding:10px 6px; color:var(--gold);">+30%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+    (function(){
+        function wire(btnId, menuId){
+            var b=document.getElementById(btnId), m=document.getElementById(menuId);
+            if(!b||!m) return;
+            b.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); m.classList.toggle('open'); });
+            document.addEventListener('click', function(){ m.classList.remove('open'); });
+        }
+        wire('actions-dd','actions-menu');
+        var sidebar=document.querySelector('.sidebar');
+        var toggle=document.querySelector('.menu-toggle');
+        var closeBtn=document.querySelector('.menu-close');
+        if(toggle){ toggle.addEventListener('click', function(){ sidebar && sidebar.classList.add('open'); }); }
+        if(closeBtn){ closeBtn.addEventListener('click', function(){ sidebar && sidebar.classList.remove('open'); }); }
+        document.querySelectorAll('.menu .menu-item').forEach(function(a){ a.addEventListener('click', function(){ sidebar && sidebar.classList.remove('open'); }); });
+        // Draw simple 3D-like pies
+        function drawPie(targetId, values, colors){
+            var el=document.getElementById(targetId); if(!el) return;
+            var w=el.clientWidth, h=el.clientHeight; // keep original size
+            var r=Math.min(w,h)/2; var cx=w/2, cy=h/2+6;
+            var total=values.reduce(function(a,b){return a+b;},0);
+            var svgNS='http://www.w3.org/2000/svg';
+            var svg=document.createElementNS(svgNS,'svg'); svg.setAttribute('width','100%'); svg.setAttribute('height','100%'); svg.setAttribute('viewBox','0 0 '+w+' '+h);
+            var start=0;
+            for(var i=0;i<values.length;i++){
+                var val=values[i]; var angle=val/total*Math.PI*2; var end=start+angle;
+                var x1=cx + r*Math.cos(start), y1=cy + r*Math.sin(start);
+                var x2=cx + r*Math.cos(end),   y2=cy + r*Math.sin(end);
+                var large= angle>Math.PI ? 1 : 0;
+                var path='M '+cx+' '+cy+' L '+x1+' '+y1+' A '+r+' '+r+' 0 '+large+' 1 '+x2+' '+y2+' Z';
+                var p=document.createElementNS(svgNS,'path'); p.setAttribute('d', path); p.setAttribute('fill', colors[i]); p.setAttribute('class','slice-shadow'); svg.appendChild(p);
+                // Leader line only
+                var mid=(start+end)/2; var ox=cx + (r*0.9)*Math.cos(mid); var oy=cy + (r*0.9)*Math.sin(mid);
+                var ex=cx + (r*1.08)*Math.cos(mid); var ey=cy + (r*1.08)*Math.sin(mid);
+                var line=document.createElementNS(svgNS,'path'); line.setAttribute('d','M '+ox+' '+oy+' L '+ex+' '+ey); line.setAttribute('class','leader'); svg.appendChild(line);
+                // Absolute HTML tag outside the SVG to avoid clipping while keeping pie size
+                var tag=document.createElement('div'); tag.className='slice-tag slice-abs'; tag.textContent='KES '+val.toLocaleString();
+                var rect=el.getBoundingClientRect(); // position later after append
+                el.appendChild(tag);
+                // Post-layout positioning
+                requestAnimationFrame(function(){
+                    var bb=el.getBoundingClientRect();
+                    var left=ex; var top=ey;
+                    tag.style.left=left+'px'; tag.style.top=top+'px';
+                });
+                start=end;
+            }
+            // Center numeric labels
+            var totalText=document.createElementNS(svgNS,'foreignObject'); totalText.setAttribute('x', cx-50); totalText.setAttribute('y', cy-24); totalText.setAttribute('width', 100); totalText.setAttribute('height', 48);
+            var div=document.createElement('div'); div.setAttribute('class','center-label');
+            var big=document.createElement('span'); big.setAttribute('class','big'); big.textContent='KES '+total.toLocaleString();
+            var small=document.createElement('span'); small.setAttribute('class','small'); small.textContent='Total';
+            div.appendChild(big); div.appendChild(small); totalText.appendChild(div); svg.appendChild(totalText);
+            el.appendChild(svg);
+        }
+        drawPie('pie-utf',[500000,60000],['#1f6f78','#d3ad7f']);
+        drawPie('pie-sf',[700000,210000],['#1f6f78','#d3ad7f']);
+    })();
+    </script>
+</body>
+</html>
+
+
